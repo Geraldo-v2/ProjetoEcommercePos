@@ -21,11 +21,14 @@ function ProductsScreen (props){
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if(successSave){
+            setModalVisible(false);
+        }
         dispatch(listProducts());
         return ()=>{
             //
         };
-    }, []);
+    }, [successSave]);
     
     const openModal = (product) =>{
         setModalVisible(true);

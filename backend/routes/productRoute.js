@@ -30,7 +30,7 @@ router.post("/", async(req, res)=>{
 
 router.put("/:id", async (req, res) => {
     const productId = req.params.id;
-    const product = await Product.findOne({ _id: productId });
+    const product = await Product.findById(productId);
 
     if(product){
         product.name = req.body.name;
@@ -43,7 +43,7 @@ router.put("/:id", async (req, res) => {
 
         const updatedProduct = await product.save();
         if(updatedProduct){
-            return res.status(201).send({message: 'Product Updated', data: updatedProduct});
+            return res.status(200).send({message: 'Product Updated', data: updatedProduct});
         }
     }
     return res.status(500).send({message: 'Error in Updating Product.'});
