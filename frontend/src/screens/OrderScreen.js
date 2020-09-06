@@ -3,46 +3,22 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
-import { createOrder } from '../actions/orderActions';
-function PlaceOrderScreen(props){
+import { createOrder, detailsOrder } from '../actions/orderActions';
+function OrderScreen(props){
+    const dispatch = useDispatch();
 
-    const cart = useSelector(state => state.cart);
-    const orderCreate = useSelector(state => state.orderCreate);
-    const { loading, success, error, order} = orderCreate;
+    useEffect(()=>{
+        dispatch(detailsOrder(props.match.params.id));
+        return()=>{
+        };
+    }, []);
 
-    const { cartItems, shipping, payment } = cart;
-    
-    if(!shipping.endereco){
-        props.history.push("/shipping");
-    } else if(!payment.paymentMethod){
-        props.history.push("/payment");
-    }
-    const itemsPrice = cartItems.reduce((a,c)=> a + c.price*c.qty, 0);
-    const shippingPrice = itemsPrice > 100 ?0 : 10;
-    const totalPrice = itemsPrice + shippingPrice;
+    const orderDetails = useSelector (state => state.orderDetails);
+    const { loading, order, error} = orderDetails;
+    const payHendler = () => { };
 
-    const dispatch = useDispatch(); 
-
-    const placeOrderHandler = () =>{
-    
-        dispatch(createOrder({
-            orderItems: cartItems, shipping, payment, 
-            itemsPrice, shippingPrice, totalPrice
-        }));
-    }
-    useEffect(() =>{
-        if(success){
-            props.history.push("/order/" + order._id);
-        }
-       
-    }, [success]);
-
-    const checkoutHandler = () =>{
-        props.history.push("/signin?redirect=shipping");
-    }
-
-    return <div>
-        <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
+    return loading?<div>Loading ...</div>:error? <div>{error}</div>: 
+    <div>
         <div className="placeorder">
             <div className="placeorder-info">
                 <div>
@@ -50,9 +26,12 @@ function PlaceOrderScreen(props){
                         Shipping
                     </h3>
                     <div>
-                        {cart.shipping.endereco}, {cart.shipping.numero}, 
-                        {cart.shipping.bairro}, {cart.shipping.cep}, 
-                        {cart.shipping.cidade}, {cart.shipping.estado},
+                        {order.shipping.endereco}, {order.shipping.numero}, 
+                        {order.shipping.bairro}, {order.shipping.cep}, 
+                        {order.shipping.cidade}, {order.shipping.estado},
+                    </div>
+                    <div>
+                        {order.isDelivered ? "Delivered at" + order.deliveredAt: "Not Delivered."}
                     </div>
                 </div>
                 <div>
@@ -60,7 +39,10 @@ function PlaceOrderScreen(props){
                         Payment
                     </h3>
                     <div>
-                        Payment Method: {cart.payment.paymentMethod}
+                        Payment Method: {order.payment.paymentMethod}
+                    </div>
+                    <div>
+                        {order.isPaid ? "Paid at" + order.paidAt: "Not Paid."}
                     </div>
                 </div>
                 <div>
@@ -74,12 +56,12 @@ function PlaceOrderScreen(props){
                             </div>
                         </li>
                         {
-                            cartItems.length ===0 ?
+                            order.orderItems.length ===0 ?
                             <div>
                                 Cart is empty
                             </div>
                             :
-                            cartItems.map( item =>
+                            order.orderItems.map( item =>
                                 <li>
                                     <div className="cart-image">
                                         <img src={item.image} alt="product" />
@@ -108,22 +90,22 @@ function PlaceOrderScreen(props){
             <div className="placeorder-action">
                 <ul>
                     <li>
-                        <button className="button primary full-width" onClick={placeOrderHandler}>Place Order</button>
+                        <button className="button primary full-width" onClick={payHendler}>Pay Now</button>
                     </li>
                     <li>
                         <h3>Order Summary</h3>
                     </li>
                     <li>
                         <div>Items</div>
-                        <div>R${itemsPrice}</div>
+                        <div>R${order.itemsPrice}</div>
                     </li>
                     <li>
                         <div>Shipping</div>
-                        <div>R${shippingPrice}</div>
+                        <div>R${order.shippingPrice}</div>
                     </li>
                     <li>
                         <div>Order Total</div>
-                        <div>R${totalPrice}</div>
+                        <div>R${order.totalPrice}</div>
                     </li>
                 </ul> 
             </div>
@@ -131,4 +113,4 @@ function PlaceOrderScreen(props){
     </div>
 }
 
-export default PlaceOrderScreen;
+export default OrderScreen;
