@@ -12,7 +12,13 @@ router.put('/:id', async (req, res)=>{
         user.email = req.body.email || user.email;
         user.password = req.body.password || user.password;
         const updatedUser = await user.save();
-        res.send({message:'User updated', data: updatedUser});
+        res.send({
+            _id: updatedUser.id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            token: getToken(updatedUser)
+        });
     }else{
         res.status(404).send({msg:'User not found!'});
     }
