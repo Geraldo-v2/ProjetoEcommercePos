@@ -4,6 +4,21 @@ import { getToken } from '../util';
 
 const router = express.Router();
 
+router.put('/:id', async (req, res)=>{
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    if(user){
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        user.password = req.body.password || user.password;
+        const updatedUser = await user.save();
+        res.send({message:'User updated', data: updatedUser});
+    }else{
+        res.status(404).send({msg:'User not found!'});
+    }
+
+})
+
 router.post('/signin', async (req, res)=>{
 
     const signinUser = await User.findOne({
