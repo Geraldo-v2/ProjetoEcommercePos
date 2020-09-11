@@ -2,10 +2,11 @@ import {PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL, PRODUCT_D
 PRODUCT_SAVE_REQUEST, PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL, PRODUCT_DELETE_FAIL, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_REQUEST } from "../constants/productConstants"
 import axios from "axios";
 import Axios from "axios";
-const listProducts = () => async (dispatch) => {
+const listProducts = (category='', searchKeyword='', sortOrder='') => async (dispatch) => {
     try{
         dispatch({ type: PRODUCT_LIST_REQUEST });
-        const {data} =  await axios.get("/api/products")
+        const {data} =  await axios.get("/api/products?category="+ category + 
+        "&searchKeyword" + searchKeyword + "&sortOrder=" + sortOrder);
         dispatch ({ type: PRODUCT_LIST_SUCCESS,  payload: data });
     }
     catch(error){

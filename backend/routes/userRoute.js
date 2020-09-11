@@ -1,10 +1,10 @@
 import express from 'express';
 import User from '../models/userModel';
-import { getToken } from '../util';
+import { getToken, isAuth } from '../util';
 
 const router = express.Router();
 
-router.put('/:id', async (req, res)=>{
+router.put('/:id', isAuth, async (req, res)=>{
     const userId = req.params.id;
     const user = await User.findById(userId);
     if(user){
