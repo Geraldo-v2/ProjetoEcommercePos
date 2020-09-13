@@ -44,16 +44,16 @@ function ProfileScreen(props){
                 <form onSubmit={submitHandler}>
                     <ul className="form-container">
                         <li>
-                            <h2>User Profile</h2>
+                            <h2>Perfil do Usuário</h2>
                         </li>
                         <li>
-                            {loading && <div>Loading...</div>}
+                            {loading && <div>Carregando...</div>}
                             {error && <div>{error}</div>}
-                            {success && <div>Profile Saved Successfully.</div>}
+                            {success && <div>Perfil Salvo com Successo.</div>}
                         </li>
                         <li>
                             <label htmlFor="name">
-                                Name
+                                Nome
                             </label>
                             <input value={name} type="name" name="name" id="name" onChange={(e) => setName(e.target.value)}>   
                             </input>
@@ -66,32 +66,33 @@ function ProfileScreen(props){
                             </input>
                         </li>
                         <li>
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">Senha</label>
                             <input value={password} type="password" id="password" name="password" onChange={(e)=> setPassword(e.target.value)}>
                             </input>
                         </li>
                         <li>
-                            <button type="submit" className="button primary">Update</button>
+                            <button type="submit" className="button primary">Atualizar</button>
                         </li>
                         <li>
-                            <button type="button" onClick={handleLogout} className="button secondary full-width">Logout</button>
+                            <button type="button" onClick={handleLogout} className="button secondary full-width">Sair</button>
                         </li>
                     </ul>
                 </form>
             </div>
         </div>
         <div className="profile-orders content-margin">
+            <h2>Compras:</h2>
             {
-                loadingOrders? <div>Loading...</div>:
+                loadingOrders? <div>Carregando...</div>:
                 errorOrders? <div>{errorOrders}</div>:
                 <table className="table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>DATE</th>
+                            <th>DATA</th>
                             <th>TOTAL</th>
-                            <th>PAID</th>
-                            <th>ACTIONS</th>
+                            <th>PAGAMENTO</th>
+                            <th>AÇÕES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,7 +102,7 @@ function ProfileScreen(props){
                             <td>{order.totalPrice}</td>
                             <td>{order.lisPaid}</td>
                             <td>
-                                <Link to={"/order/" + order._id}>DETAILS</Link>
+                                <Link to={"/order/" + order._id}>DETALHES</Link>
                             </td>
                         </tr>)}
                     </tbody>

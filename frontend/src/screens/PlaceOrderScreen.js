@@ -44,7 +44,7 @@ function PlaceOrderScreen(props) {
       <div className="placeorder-info">
         <div>
           <h3>
-            Shipping
+            Endereço para Entrega
           </h3>
           <div>
           {cart.shipping.endereco}, {cart.shipping.numero}, 
@@ -53,25 +53,25 @@ function PlaceOrderScreen(props) {
           </div>
         </div>
         <div>
-          <h3>Payment</h3>
+          <h3>Pagamento</h3>
           <div>
-            Payment Method: {cart.payment.paymentMethod}
+            Método de Pagamento: {cart.payment.paymentMethod}
           </div>
         </div>
         <div>
           <ul className="cart-list-container">
             <li>
               <h3>
-                Shopping Cart
+                Carrinho de Compras
           </h3>
               <div>
-                Price
+                Preço
           </div>
             </li>
             {
               cartItems.length === 0 ?
                 <div>
-                  Cart is empty
+                  Carrinho está vazio
           </div>
                 :
                 cartItems.map(item =>
@@ -86,11 +86,11 @@ function PlaceOrderScreen(props) {
                         </Link>
                       </div>
                       <div>
-                        Qty: {item.qty}
+                        Qtd: {item.qty}
                       </div>
                     </div>
                     <div className="cart-price">
-                      ${item.price}
+                      R${item.price}
                     </div>
                   </li>
                 )
@@ -101,26 +101,26 @@ function PlaceOrderScreen(props) {
       <div className="placeorder-action">
         <ul>
           <li>
-            <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
+            <button className="button primary full-width" onClick={placeOrderHandler} >Pagamento</button>
           </li>
           <li>
-            <h3>Order Summary</h3>
+            <h3>Resumo do Pedido</h3>
           </li>
           <li>
-            <div>Items</div>
-            <div>${itemsPrice}</div>
+            <div>Itens</div>
+            <div>R${itemsPrice}</div>
           </li>
           <li>
-            <div>Shipping</div>
-            <div>${shippingPrice}</div>
+            <div>Envio</div>
+            <div>R${shippingPrice}</div>
           </li>
           <li>
-            <div>Tax</div>
-            <div>${taxPrice}</div>
+            <div>Taxa</div>
+            <div>R${taxPrice}</div>
           </li>
           <li>
-            <div>Order Total</div>
-            <div>${totalPrice}</div>
+            <div>Total do Pedido</div>
+            <div>R${totalPrice}</div>
           </li>
         </ul>
       </div>

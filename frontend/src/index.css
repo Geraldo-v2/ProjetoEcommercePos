@@ -24,12 +24,12 @@ button{
   "main"
   "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 10rem 1fr 5rem;
   height: 100%;
 }
 .header{
   grid-area: header;
-  background-color: #203040;
+  background-color: #204023;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -61,6 +61,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style-type: none;
 }
 a{
   text-decoration: none;

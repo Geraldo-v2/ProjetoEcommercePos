@@ -34,21 +34,21 @@ function App() {
             <button onClick={openMenu}>
                 &#9776;
             </button>
-            <Link to="/">amazona</Link>
+            <Link to="/">GoHorse.br</Link>
         </div>
         <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Carrinho</a>
             {
                 userInfo ? <Link to="/profile">{userInfo.name}</Link>:
-                <Link to="/signin">Sign In</Link>
+                <Link to="/signin">Entrar</Link>
             }
             {userInfo && userInfo.isAdmin && (
                 <div className="dropdown">
-                    <a href="#" className="dropdown">Admin</a>
+                    <a href="#" className="dropdown">Administrador</a>
                     <ul className="dropdown-content">
                         <li>
-                            <Link to="/orders">Orders</Link>
-                            <Link to="/products">Products</Link>
+                            <Link to="/orders">Ordens de Compra</Link>
+                            <Link to="/products">Produtos</Link>
                         </li>
                     </ul>
                 </div>
@@ -56,7 +56,7 @@ function App() {
         </div>
     </header>
     <aside className="sidebar">
-        <h3>Shipping Categories</h3>
+        <h3>Categorias</h3>
         <button className="sidebar-close-button" onClick={closeMenu}>x</button>
         <ul className="categories">
             <li>
@@ -86,7 +86,8 @@ function App() {
         </div>
     </main>
     <footer className="footer">
-        All right reserved.
+       <li>Todos os direitos reservados</li> 
+       <li>IFSP Pós Desenvolvimento Web</li>
     </footer>
     </div>
     </BrowserRouter>

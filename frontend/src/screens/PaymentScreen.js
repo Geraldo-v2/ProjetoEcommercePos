@@ -22,7 +22,7 @@ function PaymentScreen (props){
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <h2>Payment</h2>
+                        <h2>Método de Pagamento</h2>
                     </li>
                     <li>
                         <div>
@@ -38,7 +38,7 @@ function PaymentScreen (props){
 
 
                     <li>
-                        <button type="submit" className="button primary">Continue</button>
+                        <button type="submit" className="button primary">Continuar</button>
                     </li>
 
                 </ul>

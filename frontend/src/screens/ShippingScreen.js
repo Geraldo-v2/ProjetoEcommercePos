@@ -27,18 +27,18 @@ function ShippingScreen (props){
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <h2>Shipping</h2>
+                        <h2>Endereço para envio</h2>
                     </li>
                     <li>
                         <label htmlFor="endereco">
-                            Endereco
+                            Endereço
                         </label>
                         <input type="text" name="endereco" id="endereco" onChange={(e) => setEndereco(e.target.value)}>   
                         </input>
                     </li>
                     <li>
                         <label htmlFor="numero">
-                            Numero da residencia
+                            Numero da residência
                         </label>
                         <input type="text" name="numero" id="numero" onChange={(e) => setNumero(e.target.value)}>   
                         </input>
@@ -72,7 +72,7 @@ function ShippingScreen (props){
                         </input>
                     </li>
                     <li>
-                        <button type="submit" className="button primary">Continue</button>
+                        <button type="submit" className="button primary">Continuar</button>
                     </li>
 
                 </ul>

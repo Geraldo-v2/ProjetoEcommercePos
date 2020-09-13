@@ -30,10 +30,10 @@ function SigninScreen (props){
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li>
-                    <h2>Sign-In</h2>
+                    <h2>Entrar</h2>
                 </li>
                 <li>
-                    {loading && <div>Loading...</div>}
+                    {loading && <div>Carregando...</div>}
                     {error && <div>{error}</div>}
                 </li>
                 <li>
@@ -44,18 +44,18 @@ function SigninScreen (props){
                     </input>
                 </li>
                 <li>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Senha</label>
                     <input type="password" id="password" name="password" onChange={(e)=> setPassword(e.target.value)}>
                     </input>
                 </li>
                 <li>
-                    <button type="submit" className="button primary">Signin</button>
+                    <button type="submit" className="button primary">Entrar</button>
                 </li>
                 <li>
-                    New to amazona?
+                   Novo na GoHorse?
                 </li>
                 <li>
-                    <Link to={redirect === "/" ? "register": "register?redirect=" + redirect} className="button secondary text-center">Create your amazona account</Link>
+                    <Link to={redirect === "/" ? "register": "register?redirect=" + redirect} className="button secondary text-center">Entre para cavalaria, crie sua conta!</Link>
                 </li>
             </ul>
 

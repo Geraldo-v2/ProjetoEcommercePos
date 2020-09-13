@@ -30,16 +30,16 @@ function CartScreen(props){
             <ul className="cart-list-container">
                 <li>
                     <h3>
-                        Shopping Cart
+                        Carrinho de Compras
                     </h3>
                     <div>
-                        Price
+                        Preço
                     </div>
                 </li>
                 {
                     cartItems.length ===0 ?
                     <div>
-                        Cart is empty
+                       Carrinho está vazio
                     </div>
                     :
                     cartItems.map( item =>
@@ -54,14 +54,14 @@ function CartScreen(props){
                                     </Link>
                                 </div>
                                 <div>
-                                    Qty:
+                                    Qtd:
                                     <select value={item.qty}onChange={(e)=> dispatch(addToCart(item.product, e.target.value))}>
                                         <option valu="1">1</option>
                                         <option valu="2">2</option>
                                         <option valu="3">3</option>
                                     </select>
                                     <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)}>
-                                        Delete
+                                        Deletar
                                     </button>
                                 </div>
                             </div>
@@ -77,13 +77,13 @@ function CartScreen(props){
         </div>
         <div className="cart-action">
             <h3>
-               Subtotal ( {cartItems.reduce((a, c) => a + c.qty,  0)} items)
+               Subtotal ( {cartItems.reduce((a, c) => a + c.qty,  0)} itens)
                :
-               $ {cartItems.reduce((a,c) => a + c.price * c.qty,0)}
+               R$ {cartItems.reduce((a,c) => a + c.price * c.qty,0)}
                
             </h3>
             <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.lengh === 0}>
-                Proceed to Checkout
+                Fazer Pedido
             </button>
 
         </div>
