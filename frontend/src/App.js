@@ -9,7 +9,7 @@ import light from './styles/themes/light';
 import dark from './styles/themes/dark';
 
 import GlobalSyle from './styles/global';
-import SwitchTheme from './components/Header';
+import SwitchTheme from './components/switchTheme';
 
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
@@ -46,7 +46,6 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <GlobalSyle/>
-            <SwitchTheme toggleTheme={toggleTheme}/>
             <BrowserRouter> 
                 <GridContainer>
                 <header>
@@ -74,6 +73,7 @@ function App() {
                             </div>
                         )}
                     </div>
+                    <SwitchTheme toggleTheme={toggleTheme}/>
                 </header>
                 <aside className="sidebar">
                     <h3>Categorias</h3>

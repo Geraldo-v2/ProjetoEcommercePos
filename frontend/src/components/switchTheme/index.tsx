@@ -13,6 +13,7 @@ const SwitchTheme: React.FC<Props> = ({toggleTheme}) => {
     const { colors, title } = useContext(ThemeContext);
     return(
         <Container> 
+            Tema
             <Switch
                 onChange={toggleTheme}
                 checked={title === 'dark'}

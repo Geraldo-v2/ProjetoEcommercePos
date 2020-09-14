@@ -7,7 +7,7 @@ grid-template-areas:
 "main"
 "footer";
 grid-template-columns: 1fr;
-grid-template-rows: 2rem 1fr 5rem;
+grid-template-rows: 4rem 1fr 5rem;
 height: 100%;
 
 header{
@@ -20,19 +20,21 @@ header{
   padding: 0.5rem;
 }
 .brand a{
-  color: #ffffff;
+  color: ${props => props.theme.colors.text};
   font-size: 2.5rem;
   font-weight: bold;
   text-decoration: none;
 }
 .header-links a{
-  color: #ffffff;
+  color: ${props => props.theme.colors.text};
+  font-weight: bold;
+  font-size: 1.03rem;
   text-decoration: none;
   margin-left: 1rem;
 
 }
 .header-links a:hover{
-  color: #ff8000;
+  color: ${props => props.theme.colors.secundary};
 }
 .main{
   grid-area: main;
@@ -57,7 +59,7 @@ a:hover{
   padding: .5rem;
   background: none;
   border: none;
-  color: #ffffff;
+  color: ${props => props.theme.colors.text};
   cursor: pointer;
 }
 .sidebar{

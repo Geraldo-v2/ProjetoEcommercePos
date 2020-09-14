@@ -4,7 +4,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import { savePayment } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import {Form} from '../styles/screen_styles/Form.styles'
-import { Checkout } from '../styles/components_styles/Checkout.styles'
 
 function PaymentScreen (props){
     
