@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { register } from '../actions/userActions';
+import {Form} from '../styles/screen_styles/Form.styles'
 
 function RegisterScreen (props){
     
@@ -28,7 +29,7 @@ function RegisterScreen (props){
         dispatch(register(name, email,password));
     }
 
-    return < div className="form">
+    return <Form>
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li>
@@ -73,6 +74,6 @@ function RegisterScreen (props){
             </ul>
 
         </form>
-    </div>
+    </Form>
 }
 export default RegisterScreen;

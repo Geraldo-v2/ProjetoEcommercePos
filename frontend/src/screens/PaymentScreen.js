@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { savePayment } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
+import {Form} from '../styles/screen_styles/Form.styles'
+import { Checkout } from '../styles/components_styles/Checkout.styles'
 
 function PaymentScreen (props){
     
@@ -17,8 +19,9 @@ function PaymentScreen (props){
     }
 
     return <div>
+        
         <CheckoutSteps step1 step2 step3 ></CheckoutSteps>
-            < div className="form">
+            <Form>
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
@@ -43,7 +46,7 @@ function PaymentScreen (props){
 
                 </ul>
             </form>
-        </div>
+        </Form>
     </div> 
 }
 export default PaymentScreen;

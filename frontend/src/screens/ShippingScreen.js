@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { saveShipping } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
+import {Form} from '../styles/screen_styles/Form.styles'
 
 function ShippingScreen (props){
     
@@ -23,7 +24,7 @@ function ShippingScreen (props){
 
     return <div>
         <CheckoutSteps step1 step2 ></CheckoutSteps>
-            < div className="form">
+            <Form>
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
@@ -77,7 +78,7 @@ function ShippingScreen (props){
 
                 </ul>
             </form>
-        </div>
+        </Form>
     </div> 
 }
 export default ShippingScreen;

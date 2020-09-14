@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import {Filter, Products} from '../styles/screen_styles/Home.styles'
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 function HomeScreen (props){
@@ -33,7 +33,7 @@ function HomeScreen (props){
         {category &&
         <h2>{category}</h2>}
 
-        <ul className="filter">
+        <Filter>
             <li>
                 <form onSubmit={submitHandler}>
                     <input name="searchKeyword" onChange={(e)=> setSearchKeyword(e.target.value)}/>
@@ -48,10 +48,10 @@ function HomeScreen (props){
                     <option value="highest">Baratos Primeiro</option>
                 </select>
             </li>
-        </ul>
+        </Filter>
         {loading ? <div>Carregando...</div> :
         error ? <div>{error}</div>:
-            <ul className="products">
+            <Products>
                 {
                     products.map(product =>
                     <li key={product._id}>
@@ -68,7 +68,7 @@ function HomeScreen (props){
                         </div>
                     </li>)
                 }
-            </ul>
+            </Products>
         }
     </> 
    

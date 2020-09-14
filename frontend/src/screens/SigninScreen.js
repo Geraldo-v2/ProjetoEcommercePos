@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { signin } from '../actions/userActions';
+import {Form} from '../styles/screen_styles/Form.styles'
 
 function SigninScreen (props){
     
@@ -26,7 +27,7 @@ function SigninScreen (props){
         dispatch(signin(email,password));
     }
 
-    return < div className="form">
+    return <Form>
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li>
@@ -60,6 +61,6 @@ function SigninScreen (props){
             </ul>
 
         </form>
-    </div>
+    </Form>
 }
 export default SigninScreen;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder } from '../actions/orderActions';
+import { PlaceOrder } from '../styles/screen_styles/PlaceOrder.styles'
 function PlaceOrderScreen(props) {
 
   const cart = useSelector(state => state.cart);
@@ -40,7 +41,7 @@ function PlaceOrderScreen(props) {
   }
   return <div>
     <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
-    <div className="placeorder">
+    <PlaceOrder>
       <div className="placeorder-info">
         <div>
           <h3>
@@ -124,7 +125,7 @@ function PlaceOrderScreen(props) {
           </li>
         </ul>
       </div>
-    </div>
+    </PlaceOrder>
   </div>
 }
 export default PlaceOrderScreen;

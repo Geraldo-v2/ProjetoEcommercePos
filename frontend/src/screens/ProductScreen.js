@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
+import {Details} from '../styles/screen_styles/Product.styles'
 import { detailsProduct } from '../actions/productActions';
 
 function ProductScreen (props){
@@ -26,7 +27,7 @@ function ProductScreen (props){
         {loading? <div>Loading...</div>:
         error? <div>{error}</div>:
         (
-            <div className="details">
+            <Details>
             <div className="details-image">
                <img src={product.image} alt="product"></img>
             </div>
@@ -72,7 +73,7 @@ function ProductScreen (props){
                 </ul>
 
             </div>
-        </div>
+        </Details>
         )
         }
     </div>

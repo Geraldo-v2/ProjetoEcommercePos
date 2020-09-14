@@ -4,6 +4,7 @@ import {logout, update} from '../actions/userActions';
 import {listMyOrders} from '../actions/orderActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderDetailsReducer } from '../reducers/orderReducers';
+import {Form} from '../styles/screen_styles/Form.styles'
 
 function ProfileScreen(props){
     const [name, setName] = useState('');
@@ -40,7 +41,7 @@ function ProfileScreen(props){
 
     return <div className="profile">
         <div className="profile-info">
-            < div className="form">
+            <Form>
                 <form onSubmit={submitHandler}>
                     <ul className="form-container">
                         <li>
@@ -78,7 +79,7 @@ function ProfileScreen(props){
                         </li>
                     </ul>
                 </form>
-            </div>
+            </Form>
         </div>
         <div className="profile-orders content-margin">
             <h2>Compras:</h2>

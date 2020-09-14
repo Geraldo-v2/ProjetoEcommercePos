@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { signin } from '../actions/userActions';
+import {Form} from '../styles/screen_styles/Form.styles'
+import {ProductHeader} from '../styles/screen_styles/Products.styles'
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
 
 function ProductsScreen (props){
@@ -60,12 +62,12 @@ function ProductsScreen (props){
 
     return <div className="content content-margined">
 
-        <div className="product-header">
+        <ProductHeader>
             <h3> Controle dos Produtos</h3>
             <button className="button primary" onClick={()=>openModal({})}>Cadastrar Produto</button>
-        </div>
+        </ProductHeader>
 {modalVisible &&
-    < div className="form">
+    <Form>
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
@@ -132,7 +134,7 @@ function ProductsScreen (props){
                     </li>
                 </ul>
             </form>
-        </div>
+        </Form>
 }
         
 

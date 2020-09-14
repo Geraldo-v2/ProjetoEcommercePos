@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
+import {Cart} from '../styles/screen_styles/Cart.styles'
 import { Link } from 'react-router-dom';
 function CartScreen(props){
 
@@ -25,7 +26,7 @@ function CartScreen(props){
         props.history.push("/signin?redirect=shipping");
     }
 
-    return<div className="cart">
+    return<Cart>
         <div className="cart-list">
             <ul className="cart-list-container">
                 <li>
@@ -87,7 +88,7 @@ function CartScreen(props){
             </button>
 
         </div>
-    </div>
+    </Cart>
 }
 
 export default CartScreen;
