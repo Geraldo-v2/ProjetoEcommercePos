@@ -12,15 +12,15 @@ export const PlaceOrder = styled.div`
   }
   .placeorder-action{
     flex: 1 1 20rem;
-    border: .1rem #c0c0c0 solid;
+    border: .1rem ${props => props.theme.colors.primary} solid;
     border-radius: .5rem;
-    background-color: #fcfcfc;
+    background-color:${props => props.theme.colors.background};
     padding: 1rem;
   }
   .placeorder-info > div {
-    border: .1rem #c0c0c0 solid;
+    border: .1rem ${props => props.theme.colors.primary} solid;
     border-radius: .5rem;
-    background-color: #fcfcfc;
+    background-color: ${props => props.theme.colors.background};
     padding: 1rem;
     margin: 1rem;
   }
@@ -39,7 +39,7 @@ export const PlaceOrder = styled.div`
   .placeorder-action > ul > li:last-child{
     font-size: 2rem;
     font-weight: bold;
-    color: #c04000;
+    color: ${props => props.theme.colors.secondary};
   }
   .placeorder-action-payment > div {
     width: 100%;

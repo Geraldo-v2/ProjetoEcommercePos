@@ -53,7 +53,7 @@ function App() {
                         <button onClick={openMenu}>
                             &#9776;
                         </button>
-                        <Link to="/">GoHorse.br</Link>
+                        <Link to="/">gohorse.br</Link>
                     </div>
                     <div className="header-links">
                         <a href="cart.html">Carrinho</a>
@@ -66,7 +66,7 @@ function App() {
                                 <a href="#" className="dropdown">Administrador</a>
                                 <ul className="dropdown-content">
                                     <li>
-                                        <Link to="/orders">Ordens de Compra</Link>
+                                        <Link to="/orders">Ordens</Link>
                                         <Link to="/products">Produtos</Link>
                                     </li>
                                 </ul>

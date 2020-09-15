@@ -10,80 +10,115 @@ grid-template-columns: 1fr;
 grid-template-rows: 4rem 1fr 5rem;
 height: 100%;
 
-header{
-  grid-area: header;
-  background: ${props => props.theme.colors.primary};
-  color: ${props => props.theme.colors.text};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-}
 .brand a{
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.theme.colors.background};
   font-size: 2.5rem;
   font-weight: bold;
   text-decoration: none;
+  font-family: 'Lobster';
 }
 .header-links a{
-  color: ${props => props.theme.colors.text};
-  font-weight: bold;
-  font-size: 1.03rem;
+  color: ${props => props.theme.colors.background};
+  font-size: 1.3rem;
   text-decoration: none;
   margin-left: 1rem;
 
 }
 .header-links a:hover{
-  color: ${props => props.theme.colors.secundary};
+  color: ${props => props.theme.colors.text};
 }
 .main{
   grid-area: main;
 }
 .footer{
   grid-area: footer;
-  background-color: #203040;
-  color: #ffffff;
+  background-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.background};
   display: flex;
   justify-content: center;
   align-items: center;
   list-style-type: none;
 }
-a{
-  text-decoration: none;
+.footer li{
+  font-size: 1.3rem;
+  margin-left: 2rem;
 }
 a:hover{
-  color:#ff8000;
+  color:${props => props.theme.colors.secundary};
 }
 .brand button{
-  font-size: 3rem;
+  font-size: 2rem;
   padding: .5rem;
   background: none;
   border: none;
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.theme.colors.background};
   cursor: pointer;
+}
+.brand button:hover{
+  color: ${props => props.theme.colors.secundary};
 }
 .sidebar{
   position: fixed;
   transition: all .5s;
   transform: translateX(-30rem);
-  width: 30rem;
-  background-color: #f0f0f0;
+  width: 20rem;
+  background-color: ${props => props.theme.colors.secundary};
   height: 100%;
+}
+.sidebar h3{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-top: 0.7rem;
+  color: ${props => props.theme.colors.background}
+}
+.sidebar.open{
+  transform: translateX(0);
 }
 .sidebar.open{
   transform: translateX(0);
 }
 .sidebar-close-button{
   border-radius: 50%;
-  border: .1rem #000000 solid;
-  width: 3rem;
-  height: 3rem;
-  padding: .5rem;
-  font-size: 2rem;
+  border: .1rem ${props => props.theme.colors.secundary} solid;
+  width: 2rem;
+  height: 2rem;
+  padding: .3rem;
+  font-size: 1rem;
   padding-top: 0;
   cursor: pointer;
   position: absolute;
   right: .5rem;
-  top: 1.5rem;
+  top: 1rem;
+}
+.categories a{
+  color: ${props => props.theme.colors.background};
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-top: 0.7rem;
+}
+
+.categories a:hover{
+  color: ${props => props.theme.colors.primary};
+}
+
+.dropdown{
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content{
+  position: absolute;
+  display: none;
+  right: 0;
+  padding: 1rem;
+  list-style-type: none;
+  z-index: 1;
+  background-color: ${props => props.theme.colors.primary};
+  margin:0;
+  margin-top:0.4rem;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
 }
 `;
