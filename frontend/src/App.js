@@ -36,6 +36,7 @@ function App() {
     const userSignin = useSelector(state=> state.userSignin);
     const {userInfo} = userSignin;
     
+    
     const openMenu = () =>{
         document.querySelector(".sidebar").classList.add("open");
     }
@@ -56,7 +57,7 @@ function App() {
                         <Link to="/">gohorse.br</Link>
                     </div>
                     <div className="header-links">
-                        <a href="cart.html">Carrinho</a>
+                        <Link to="/cart/:id?">Carrinho</Link>
                         {
                             userInfo ? <Link to="/profile">{userInfo.name}</Link>:
                             <Link to="/signin">Entrar</Link>
@@ -66,7 +67,7 @@ function App() {
                                 <a href="#" className="dropdown">Administrador</a>
                                 <ul className="dropdown-content">
                                     <li>
-                                        <Link to="/orders">Ordens</Link>
+                                        <Link to="/orders">Pedidos</Link>
                                         <Link to="/products">Produtos</Link>
                                     </li>
                                 </ul>
@@ -80,10 +81,25 @@ function App() {
                     <button className="sidebar-close-button" onClick={closeMenu}>x</button>
                     <ul className="categories">
                         <li>
-                            <Link to="/category/Pants">Pants</Link>
+                            <Link to="/category/Selas">Selas e Arreios</Link>
                         </li>
                         <li>
-                            <Link to="/category/Shirts">Shirts</Link>
+                            <Link to="/category/Calcados">Calçados</Link>
+                        </li>
+                        <li>
+                            <Link to="/category/Chapeus">Chapéus</Link>
+                        </li>
+                        <li>
+                            <Link to="/category/Coletes">Coletes</Link>
+                        </li>
+                        <li>
+                            <Link to="/category/Camisas">Camisas</Link>
+                        </li>
+                        <li>
+                            <Link to="/category/Canivetes">Canivetes</Link>
+                        </li>
+                        <li>
+                            <Link to="/category/Calcas">Calças</Link>
                         </li>
                     </ul>
                 </aside>

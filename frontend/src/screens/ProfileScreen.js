@@ -90,10 +90,10 @@ function ProfileScreen(props){
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>DATA</th>
-                            <th>TOTAL</th>
-                            <th>PAGAMENTO</th>
-                            <th>AÇÕES</th>
+                            <th>Data</th>
+                            <th>Total</th>
+                            <th>Pagamento</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>

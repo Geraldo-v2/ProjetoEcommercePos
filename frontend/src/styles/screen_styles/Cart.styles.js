@@ -11,8 +11,8 @@ export const Cart = styled.div`
     }
     .cart-action{
     flex: 1 1 20rem;
-    background-color: #f8f8f8f8;
-    border: .1rem #808080 solid;
+    background-color: ${props => props.theme.colors.background};
+    border: .1rem ${props => props.theme.colors.primary} solid;
     border-radius: .5rem;
     padding: 1rem;
     }
@@ -26,7 +26,7 @@ export const Cart = styled.div`
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 1rem;
-    border-bottom:.1rem #808080 solid;
+    border-bottom:.1rem #${props => props.theme.colors.primary} solid;
     }
     .cart-list-container li img{
     max-width: 10rem;

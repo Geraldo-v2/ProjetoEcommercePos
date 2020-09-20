@@ -1,20 +1,21 @@
 
 import { createGlobalStyle } from 'styled-components';
 
-import Lobster from "../styles/fonts/Lobster-Regular.ttf";
-import Quicksand from "../styles/fonts/Quicksand.ttf";
+import Lobster from "../styles/fonts/lobster.woff2";
+import Quicksand from "../styles/fonts/quicksandBold.woff2";
 
 export default createGlobalStyle`
-* {
   @font-face {
     font-family: 'Lobster';
-    src: url(${Lobster});
+    src: local(Lobster), url(${Lobster}) format('woff2');
   }
   @font-face {
     font-family: 'Quicksand';
-    src: url(${Quicksand});
+    src: local('Quicksand'), url(${Quicksand}) format('woff2');
+    font-style: italic;
   }
-  
+
+* {  
   font-size: 16px; /* 16px * 62.5 = 10px = 1rem */
   margin: 0;
   padding: 0;
