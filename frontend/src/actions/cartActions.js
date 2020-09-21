@@ -1,13 +1,13 @@
 import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_SHIPPING, CART_SAVE_PAYMENT } from "../constants/cartConstants";
 import axios from "axios";
 import Cookie from "js-cookie";
-const addToCart = (productId, qty)=> async (dispatch, getState)=>{
+const addToCart = (ProductId, qty)=> async (dispatch, getState)=>{
 
     try{
-        const {data} = await axios.get("/api/products/" + productId);
+        const {data} = await axios.get(`http://localhost:8080/backend/api/products?ProductId=${ProductId}` );
         dispatch({
             type: CART_ADD_ITEM, payload:{
-                product: data._id,
+                product: data.ProductId,
                 name: data.name,
                 image: data.image,
                 price: data.price,

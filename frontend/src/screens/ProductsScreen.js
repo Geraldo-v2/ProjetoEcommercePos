@@ -38,7 +38,7 @@ function ProductsScreen (props){
     
     const openModal = (product) =>{
         setModalVisible(true);
-        setId(product._id);
+        setId(product.ProductId);
         setName(product.name);
         setPrice(product.price);
         setDescription(product.description);
@@ -51,13 +51,13 @@ function ProductsScreen (props){
     const submitHandler = (e) =>{
         e.preventDefault();
         dispatch(saveProduct({
-            _id: id,
+            ProductId: id,
             name, price, image, brand, category, 
             countInStock, description
         }));
     }
     const deleteHandler = (product) => {
-        dispatch(deleteProduct(product._id));
+        dispatch(deleteProduct(product.ProductId));
     }
 
     return <div className="content content-margined">

@@ -64,7 +64,7 @@ function RegisterScreen (props){
                     </input>
                 </li>
                 <li>
-                    <button type="submit" className="button primary">Registrar</button>
+                    <button type="submit" className="button primary">Registrar</button>                    
                 </li>
                 <li>
                     Você já tem uma conta? 
