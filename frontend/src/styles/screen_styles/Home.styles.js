@@ -5,7 +5,7 @@ export const Filter = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 1rem auto;
-  max-width: 60rem;
+  max-width: 40rem;
   justify-content: space-between;
   align-items: center;
 .filter input,
@@ -15,16 +15,6 @@ export const Filter = styled.ul`
   border-radius: 0.5rem;
   border:.1rem #c0c0c0 solid;
   font-size: 1.6rem;
-}
-.categories{
-  padding: 0;
-}
-.categories a{
-  display: flex;
-  padding: 1rem;
-}
-.categories a:hover{
-  background-color: #c0c0c0;
 }
 `;
 

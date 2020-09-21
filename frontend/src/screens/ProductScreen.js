@@ -22,9 +22,9 @@ function ProductScreen (props){
     
     return <div>
         <div className="back-to-result">
-            <Link to= "/">Back to result</Link>
+            <Link to= "/">Voltar</Link>
         </div>
-        {loading? <div>Loading...</div>:
+        {loading? <div>Carregando...</div>:
         error? <div>{error}</div>:
         (
             <Details>
@@ -37,13 +37,10 @@ function ProductScreen (props){
                        <h4>{product.name}</h4> 
                     </li>
                     <li>
-                        {product.rating} Stars ({product.numReviews} Reviews)
+                        Preço: <b>${product.price}</b>
                     </li>
                     <li>
-                        Price: <b>${product.price}</b>
-                    </li>
-                    <li>
-                        Description:
+                        Descrição:
                         <div>
                             {product.description}
                         </div>
@@ -53,20 +50,20 @@ function ProductScreen (props){
             <div className="details-action">
                 <ul>
                     <li>
-                        Price: {product.price}
+                        Preço: {product.price}
                     </li>
                     <li>
-                        Status: {product.countInStock > 0? "In Stock": "Unavailable" }
+                        Estoque: {product.countInStock > 0? "Disponivel": "Em falta" }
                     </li>
                     <li>
-                        Qty: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                        Qtd: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
                            {[...Array(product.countInStock).keys()].map(x=>
                             <option key={x + 1} value={x + 1}>{x + 1}</option>
                             )}
                         </select>
                     </li>
                     <li>
-                        {product.countInStock>0 && <button onClick={handleAddToCart} className="button primary" >Add to Cart</button>
+                        {product.countInStock>0 && <button onClick={handleAddToCart} className="button primary" >Adicionar no carrinho</button>
                         } 
                     </li>
                     

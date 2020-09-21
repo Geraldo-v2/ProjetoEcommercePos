@@ -7,6 +7,7 @@ import { orderDetailsReducer } from '../reducers/orderReducers';
 import {Form} from '../styles/screen_styles/Form.styles'
 
 function ProfileScreen(props){
+    const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState ('');
@@ -30,6 +31,7 @@ function ProfileScreen(props){
 
     useEffect(()=>{
         if(userInfo){
+            setId(userInfo._id);
             setName(userInfo.name);
             setEmail(userInfo.email);
             setPassword(userInfo.password);
@@ -51,6 +53,13 @@ function ProfileScreen(props){
                             {loading && <div>Carregando...</div>}
                             {error && <div>{error}</div>}
                             {success && <div>Perfil Salvo com Successo.</div>}
+                        </li>
+                        <li className="idProfile">
+                            <label htmlFor="id">
+                                ID
+                            </label>
+                            <input value={id} type="id" name="id" id="id" readonly="readonly" onChange={(e) => setId(e.target.value)}>   
+                            </input>
                         </li>
                         <li>
                             <label htmlFor="name">
@@ -90,10 +99,10 @@ function ProfileScreen(props){
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>DATA</th>
-                            <th>TOTAL</th>
-                            <th>PAGAMENTO</th>
-                            <th>AÇÕES</th>
+                            <th>Data</th>
+                            <th>Total</th>
+                            <th>Pagamento</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -10,8 +10,9 @@ export const Form = styled.div`
   display: flex;
   flex-direction: column;
   width:32rem;
+  margin-top:1rem;
   padding: 2rem;
-  border: .1rem #c0c0c0 solid;
+  border: .2rem ${props => props.theme.colors.primary} solid;
   border-radius: .5rem;
   list-style-type: none;
 }

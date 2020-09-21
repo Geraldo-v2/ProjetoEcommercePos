@@ -40,7 +40,12 @@ function CartScreen(props){
                 {
                     cartItems.length ===0 ?
                     <div>
-                       Carrinho está vazio
+                        <li>
+                        Carrinho está vazio
+                        </li>
+                        <li>
+                        <Link to="/">Vamos as compras!!!</Link>
+                        </li>
                     </div>
                     :
                     cartItems.map( item =>
@@ -83,7 +88,7 @@ function CartScreen(props){
                R$ {cartItems.reduce((a,c) => a + c.price * c.qty,0)}
                
             </h3>
-            <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.lengh === 0}>
+            <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length===0}>
                 Fazer Pedido
             </button>
 

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder, detailsOrder, payOrder } from '../actions/orderActions';
 import PaypalButton from '../components/PaypalButton';
+import { PlaceOrder } from '../styles/screen_styles/PlaceOrder.styles';
 function OrderScreen(props){
     
     const orderPay = useSelector(state => state.orderPay);
@@ -31,7 +32,7 @@ function OrderScreen(props){
 
     return loading?<div>Loading ...</div>:error? <div>{error}</div>: 
     <div>
-        <div className="placeorder">
+        <PlaceOrder>
             <div className="placeorder-info">
                 <div>
                     <h3>
@@ -125,7 +126,7 @@ function OrderScreen(props){
                     </li>
                 </ul> 
             </div>
-        </div>
+        </PlaceOrder>
     </div>
 }
 
